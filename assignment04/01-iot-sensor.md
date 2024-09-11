@@ -57,6 +57,7 @@ include library สำหรับเชื่อมต่อกับ MQTT brok
 เวลาและวันที่ที่ได้รับจากเซิร์ฟเวอร์ NTP จะถูกบันทึกลงใน JSON payload ซึ่งจะใช้เป็น timestamp ของข้อมูลเซ็นเซอร์
 
 ## ESP32
+
 /// LIB
 #include <Wire.h>
 #include <Adafruit_BMP280.h>
