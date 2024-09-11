@@ -1,13 +1,13 @@
 # Store data.
-การเก็บข้อมูลลงในฐานข้อมูลนั้น จะทำการดึงข้อมูลจาก Kafka ไปที่ MongoDB ซึ่งเป็น Database รูปแบบของ NoSql เพื่อให้สามารถใช้ข้อมูลเหล่านี้ได้ในภายหลัง
+จะทำการดึงข้อมูลจาก Kafka ไปที่ MongoDB ซึ่งเป็น Database รูปแบบของ NoSql เพื่อให้สามารถใช้ข้อมูลเหล่านี้ได้ในภายหลัง
 
 #การทำงาน
 
-โดยในการรับส่งข้อมูลนั้นมีจะส่งผ่าน Kafka connect ที่จะถูกเชื่อมต่อกับส่วนต่างๆ ทั้ง MQTT, Prometheus และ MongoDB ซึ่ง Kafka จะเป็นตัวจัดการ ซึ่งจะมี 3 collection สำหรับ MongoDB มีหลักการทำงานดังนี้
+โดยในการรับส่งข้อมูลนั้นมีจะส่งผ่าน Kafka connect ที่จะถูกเชื่อมต่อกับส่วนต่างๆ MQTT, Prometheus และ MongoDB ซึ่ง Kafka จะเป็นตัวจัดการ จะมี 3 collection สำหรับ MongoDB มีหลักการทำงานดังนี้
 
 รับข้อมูลจาก iot_frames
 
-ส่งข้อมูลไปที่ Collection ที่กำหนด โดย ณ ที่นี้ใช้ iot_frames ลงใน Database IOT
+ส่งข้อมูลไปที่ Collection ที่กำหนด โดย ใช้ iot_frames ลงใน Database IOT
 
 File Path: kafka_connect/data/scripts/config/connect-mongodb-iot-frames-sink.json
 
