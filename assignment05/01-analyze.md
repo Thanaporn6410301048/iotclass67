@@ -3,6 +3,9 @@
 
 #IoT Processor Kafka Streams Config
 การตั้งค่าการใช้งาน Kafka Streams เพื่อรองรับการประมวลผลข้อมูลจากเซ็นเซอร์โดยใช้บริการที่ชื่อว่า KafkaStreamsConfig ซึ่งมีหน้าที่หลักในการจัดการการไหลของข้อมูล (data stream) ที่มาจาก Kafka topic และใช้โปรเซสเซอร์ต่าง ๆ ในการประมวลผลข้อมูลเหล่านั้น
+Aggregate Metrics By Sensor Processor
+Aggregate Metrics By Place Processor
+MetricsTimeSeriesProcessor
 
 
 ```bash
