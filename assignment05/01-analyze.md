@@ -1,15 +1,9 @@
 # Analyze and make aggregations.
-การวิเคราะห์และการทำการรวมข้อมูล (Analyze and Make Aggregations): ขั้นตอนที่สำคัญในการทำให้ข้อมูลที่ได้จากเซ็นเซอร์เป็นประโยชน์และใช้งานได้ง่ายขึ้น โดยการสรุปข้อมูลที่ได้ในช่วงเวลาต่างๆ เพื่อนำเสนอข้อมูลสถิติหรือข้อมูลเชิงลึก เช่น ค่าเฉลี่ย ค่าสูงสุด หรือต่ำสุด ของอุณหภูมิ ความชื้น แสงสว่าง ฯลฯ ในช่วงเวลาที่กำหนด
+การวิเคราะห์และการทำการรวมข้อมูล (Analyze and Make Aggregations): ขั้นตอนที่สำคัญในการทำให้ข้อมูลที่ได้จากเซ็นเซอร์เป็นประโยชน์และใช้งานได้ง่ายขึ้น โดยการสรุปข้อมูลที่ได้ในช่วงเวลาต่างๆ เพื่อนำเสนอข้อมูลสถิติหรือข้อมูลเชิงลึก เช่น ค่าเฉลี่ย ค่าสูงสุด หรือต่ำสุด ของอุณหภูมิ ความชื้น แสงสว่าง ในช่วงเวลานั้นๆ
 
 #IoT Processor Kafka Streams Config
 การตั้งค่าการใช้งาน Kafka Streams เพื่อรองรับการประมวลผลข้อมูลจากเซ็นเซอร์โดยใช้บริการที่ชื่อว่า KafkaStreamsConfig ซึ่งมีหน้าที่หลักในการจัดการการไหลของข้อมูล (data stream) ที่มาจาก Kafka topic และใช้โปรเซสเซอร์ต่าง ๆ ในการประมวลผลข้อมูลเหล่านั้น
 
-
-Aggregate Metrics By Sensor Processor
-
-Aggregate Metrics By Place Processor
-
-MetricsTimeSeriesProcessor
 
 ```bash
 @Configuration
@@ -186,9 +180,9 @@ public class AggregateMetricsByPlaceProcessor {
 ```
 
 #Third processor "Metrics Time Series Processor"
+
 ตัวประมวลผลตัวที่สามมีหน้าที่ในการแปลงข้อมูลให้อยู่ในรูปแบบที่เข้ากันได้กับ Prometheus ซึ่งเป็นระบบเก็บข้อมูลเมตริกที่นิยมใช้ในงานตรวจสอบระบบ
 
-โดยมีวัตถุประสงค์:
 
 เปลี่ยนข้อมูลเป็น schema ที่เข้ากับ Prometheus โดยใช้ชื่อ, sensor id, และ place identifier เป็นมิติ (dimension) ของข้อมูล และใช้ payload เป็นค่าที่สามารถแสดงผลในรูปแบบ time series บน Grafana ได้
 
@@ -252,7 +246,6 @@ public class MetricsTimeSeriesProcessor {
 #First processor "Aggregate Metrics By Sensor Processor"
 ตัวประมวลผลตัวแรกจะทำการรวมข้อมูลตาม sensor id โดยใช้ rotating time window ที่มีช่วงเวลา 5 นาที
 
-โดยมีวัตถุประสงค์:
 
 เพื่อคำนวณค่าเฉลี่ยสำหรับตัวแปรต่างๆ เช่น อุณหภูมิ, ความชื้น, ความดัน และความสว่าง โดยใช้ข้อมูลจากเซ็นเซอร์แต่ละตัว
 
